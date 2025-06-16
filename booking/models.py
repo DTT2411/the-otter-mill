@@ -13,3 +13,11 @@ class Reservation(models.Model):
     duration = models.IntegerField()
     special_reqs = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now=True)
+
+
+class Table(models.Model):
+    reservation = models.ForeignKey(
+        Reservation, on_delete=models.CASCADE, related_name="reserved_tables"
+    )
+    table_id = models.IntegerField()
+    capacity = models.IntegerField()
