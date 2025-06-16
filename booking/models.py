@@ -12,3 +12,4 @@ class Reservation(models.Model):
     date = models.DateField()
     duration = models.IntegerField()
     special_reqs = models.TextField(max_length=500)
+    created_on = models.DateTimeField(auto_now=True)
