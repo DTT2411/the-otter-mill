@@ -19,5 +19,5 @@ class Table(models.Model):
     reservation = models.ForeignKey(
         Reservation, on_delete=models.CASCADE, related_name="reserved_tables"
     )
-    table_id = models.IntegerField()
+    table_id = models.IntegerField(unique=True)
     capacity = models.IntegerField()
