@@ -5,8 +5,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Table(models.Model):
+
     table_id = models.PositiveIntegerField(unique=True)
     capacity = models.PositiveIntegerField()
+
+    class Meta:
+        ordering = ["-table_id"]
 
 
 class Reservation(models.Model):
@@ -23,3 +27,5 @@ class Reservation(models.Model):
     special_reqs = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        ordering = ["-time", "-date"]
