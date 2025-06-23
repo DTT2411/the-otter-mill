@@ -10,5 +10,5 @@ from .models import Reservation
 
 class BookingList(generic.ListView):
     # model = Reservation
-    queryset = Reservation.objects.all()
+    queryset = Reservation.objects.all().order_by('date', 'time')
     template_name = "reservation_list.html"
