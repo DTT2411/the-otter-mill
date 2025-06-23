@@ -12,6 +12,9 @@ class Table(models.Model):
     class Meta:
         ordering = ["-table_id"]
 
+    def __str__(self):
+        return f"Table {self.table_id} | {self.capacity}-person table"
+
 
 class Reservation(models.Model):
     guest = models.ForeignKey(
@@ -32,3 +35,7 @@ class Reservation(models.Model):
 
     class Meta:
         ordering = ["-time", "-date"]
+
+    def __str__(self):
+        return f"Time: {self.time} | Date: {self.date} | Guest: {self.guest.username} | Table: {self.table.table_id}"
+    
