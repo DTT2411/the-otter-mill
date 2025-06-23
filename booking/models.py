@@ -17,7 +17,10 @@ class Reservation(models.Model):
     guest = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reservations"
     )
-    table = models.OneToOneField(
+    # table = models.OneToOneField(
+    #     Table, on_delete=models.CASCADE, related_name="reserved_table"
+    # )
+    table = models.ForeignKey(
         Table, on_delete=models.CASCADE, related_name="reserved_table"
     )
     number_of_guests = models.PositiveIntegerField()
