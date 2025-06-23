@@ -1,7 +1,14 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Reservation
+# from django.http import HttpResponse
 
 
 # Create your views here.
-def my_booking(request):
-    return HttpResponse("Hello, this is the booking page!")
+# def my_booking(request):
+#     return HttpResponse("Hello, this is the booking page!")
+
+class BookingList(generic.ListView):
+    # model = Reservation
+    queryset = Reservation.objects.all()
+    template_name = "reservation_list.html"
