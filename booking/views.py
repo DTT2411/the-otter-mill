@@ -11,15 +11,16 @@ from .forms import ReservationForm
 
 
 def create_reservation(request):
-    form = ReservationForm()
-    return render(
-        request,
-        'booking/reservation_form.html',
-        {
-            "form": form,
-        },
-    )
-
+    if request.method == 'POST':
+        form = ReservationForm(data=request.POST)
+        if form.is_valid():
+            reservation = form.save(commit=False)
+            # Make any changes to data here before saving
+            reservation.user = request.user
+            reservation.save()
+    else:
+        form = ReservationForm()
+    return render(request, 'booking/reservation_form.html', {"form": form,},)
 # def delete_reservation(request):
 #     return
 
