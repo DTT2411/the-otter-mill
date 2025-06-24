@@ -19,6 +19,7 @@ from django.urls import path, include
 # from booking.views import my_booking
 
 urlpatterns = [
+    path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     # path('booking/', my_booking, name='booking')
     path('summernote/', include('django_summernote.urls')),
