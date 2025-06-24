@@ -3,16 +3,18 @@
 {% block content %}
 
 <!-- My Bookings content starts here -->
-<h1>List of existing bookings</h1>
+<h1>List of your existing bookings</h1>
 <br>
 {% for booking in object_list %}
+{% if booking.guest == user %}
 <h2>Name: {{ booking.guest }}</h2>
 <p>Time: {{ booking.time }}</p>
 <p>Date: {{ booking.date }}</p>
 <p>Duration: {{ booking.duration }} hours</p>
-<p>Table: {{ booking.table.table_id }}</p>
+<p>Table: {{ booking.table.table_id }}</p> 
 <p>Booked on: {{ booking.created_on }}</p>
 <br>
+{% endif %}
 {% endfor %}
 
 {% endblock %}
