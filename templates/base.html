@@ -47,7 +47,7 @@
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="{% url 'account_login' %}">Login</a>
                     </li>
-                    <li class="nav-item" aria-current="page" href="#"> 
+                    <li class="nav-item text-end" aria-current="page" href="#"> 
                         <a class="nav-link" href="#">Book Now</a>
                     </li>
                     {% endif %}
@@ -58,7 +58,12 @@
 
     <!-- Main -->
     <main>
-
+        {% if user.is_authenticated %}
+        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        {% else %}
+        <p class="text-end m-3">You are not logged in</p>
+        {% endif %}
+        
         {% block content %}
         <!-- Content goes here -->
         {% endblock content %}
