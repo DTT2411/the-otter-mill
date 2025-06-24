@@ -9,6 +9,5 @@ from .models import Reservation
 #     return HttpResponse("Hello, this is the booking page!")
 
 class BookingList(generic.ListView):
-    # model = Reservation
     queryset = Reservation.objects.all().order_by('date', 'time')
     # template_name = "reservation_list.html"

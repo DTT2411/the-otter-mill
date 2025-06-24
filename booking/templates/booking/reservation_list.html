@@ -1,24 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Booking View</title>
-</head>
+{% block content %}
 
-<body>
-    <h1>List of existing bookings</h1>
-    <br>
-    {% for booking in object_list %}
-    <h2>Name: {{ booking.guest }}</h2>
-    <p>Time: {{ booking.time }}</p>
-    <p>Date: {{ booking.date }}</p>
-    <p>Duration: {{ booking.duration }} hours</p>
-    <p>Table: {{ booking.table.table_id }}</p>
-    <p>Booked on: {{ booking.created_on }}</p>
-    <br>
-    {% endfor %}
-</body>
+<!-- My Bookings content starts here -->
+<h1>List of existing bookings</h1>
+<br>
+{% for booking in object_list %}
+<h2>Name: {{ booking.guest }}</h2>
+<p>Time: {{ booking.time }}</p>
+<p>Date: {{ booking.date }}</p>
+<p>Duration: {{ booking.duration }} hours</p>
+<p>Table: {{ booking.table.table_id }}</p>
+<p>Booked on: {{ booking.created_on }}</p>
+<br>
+{% endfor %}
 
-</html>
+{% endblock %}
