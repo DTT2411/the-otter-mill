@@ -2,3 +2,42 @@ form {
     margin-left: 50px;
     margin-right: 50px;
 }
+
+
+/* Custom styling for reservation_form.html */
+
+/* Limits the size of form fields */
+.small_form_field {
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.form_text_area {
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    /* display: inline-block; */
+}
+
+.center-label {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    border: solid black 2px;
+    color: black;
+    background-color: white;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
