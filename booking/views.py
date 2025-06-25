@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Reservation, Table
 from .forms import ReservationForm
 from datetime import datetime, timedelta
@@ -12,6 +13,9 @@ from datetime import datetime, timedelta
 #     return HttpResponse("Hello, this is the booking page!")
 
 
+
+
+@login_required
 def create_reservation(request):
 
     error_message = None
@@ -28,8 +32,9 @@ def create_reservation(request):
             time = reservation.time
             duration = reservation.duration
 
-            # Calculate requested start and end datetime
+            # Combine date & time for calculation with timedelta
             requested_start = datetime.combine(date, time)
+            # Calculates the requested end time by adding the duration to the start time
             requested_end = requested_start + timedelta(minutes=duration)
 
             # Get tables with enough capacity
@@ -41,7 +46,7 @@ def create_reservation(request):
                 for existing in Reservation.objects.filter(table=table, date=date):
                     existing_start = datetime.combine(existing.date, existing.time)
                     existing_end = existing_start + timedelta(minutes=existing.duration)
-                    # Overlap if requested_start < existing_end and requested_end > existing_start
+                    # Calculates whether there is an overlap between the requested time and existing time on the table
                     if requested_start < existing_end and requested_end > existing_start:
                         has_overlap = True
                         break
@@ -61,15 +66,24 @@ def create_reservation(request):
     else:
         form = ReservationForm()
     return render(request, 'booking/reservation_form.html', {"form": form, "error_message": error_message, "assigned_table": assigned_table})
-# def delete_reservation(request):
-#     return
+
+
+def delete_reservation(request, reservation_id):
+    from django.shortcuts import get_object_or_404
+    if request.method == 'POST':
+        reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
+        reservation.delete()
+        messages.success(request, "Reservation deleted successfully.")
+    return redirect('my_bookings')
+
 
 def display_homepage(request):
     return render(request, 'booking/homepage.html')
 
-# def display_homepage(request):
-#     return
 
 class BookingList(generic.ListView):
-    queryset = Reservation.objects.all().order_by('date', 'time')
-    # template_name = "reservation_list.html"
+    model = Reservation
+    template_name = "booking/reservation_list.html"
+
+    def get_queryset(self):
+        return Reservation.objects.filter(guest=self.request.user).order_by('date', 'time')
