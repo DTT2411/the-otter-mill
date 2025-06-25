@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator
 
 
 # Create your models here.
@@ -20,16 +21,12 @@ class Reservation(models.Model):
     guest = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reservations"
     )
-    # table = models.OneToOneField(
-    #     Table, on_delete=models.CASCADE, related_name="reserved_table"
-    # )
     table = models.ForeignKey(
         Table, on_delete=models.CASCADE, related_name="reserved_table"
     )
-    number_of_guests = models.PositiveIntegerField()
+    number_of_guests = models.PositiveIntegerField(validators=[MaxValueValidator(6)])
     time = models.TimeField()
     date = models.DateField()
-    from django.core.validators import MaxValueValidator
     duration = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
     special_reqs = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now=True)
