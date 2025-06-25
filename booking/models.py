@@ -29,7 +29,8 @@ class Reservation(models.Model):
     number_of_guests = models.PositiveIntegerField()
     time = models.TimeField()
     date = models.DateField()
-    duration = models.PositiveIntegerField()
+    from django.core.validators import MaxValueValidator
+    duration = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
     special_reqs = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now=True)
 

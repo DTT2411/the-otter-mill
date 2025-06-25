@@ -54,7 +54,7 @@ def create_reservation(request):
                 messages.success(request, "Reservation successful!")
                 return redirect('create_reservation')
             else:
-                error_message = "No available table for the selected date, time, and number of guests."
+                error_message = "No available table at your selected time."
         else:
             error_message = "Invalid form submission."
     else:
