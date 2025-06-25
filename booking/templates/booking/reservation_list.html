@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>List of bookings for {{ user.username }}</h1>
+<h1 id="reservation-list-header">List of bookings for {{ user.username }}</h1>
 <br>
 {% if messages %}
   {% for message in messages %}
