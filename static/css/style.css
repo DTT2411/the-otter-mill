@@ -42,8 +42,9 @@ nav {
 
 footer {
     font-size: smaller;
-    margin-bottom: 10px;
     color: var(--secondary-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 footer i {
