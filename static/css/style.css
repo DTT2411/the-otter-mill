@@ -8,7 +8,6 @@
     --primary-color: #30011E;
     --secondary-color: #d7fcd4;
     --tertiary-color: #B6CCA1;
-
 }
 
 
@@ -25,13 +24,19 @@ h1, h2, h3, h4 {
 
 nav {
     background-color: var(--primary-color);
+    font-family: var(--main-font);
 }
 
-.navbar-brand, .nav-link {
+.navbar-header {
+    margin-right: 20px;
+}
+
+.nav-link {
     color: var(--secondary-color);
+    font-family: var(--main-font);
 }
 
-.navbar-brand:hover, .nav-link:hover {
+.nav-link:hover {
     color: var(--tertiary-color);
 }
 
@@ -83,8 +88,6 @@ footer i {
     color: var(--primary-color);
     background-color: var(--secondary-color);
 }
-
-
 
 /* Custom styling for reservation_form.html */
 
