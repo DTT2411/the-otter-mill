@@ -15,13 +15,17 @@ class ReservationForm(forms.ModelForm):
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'small_form_field'}),
             'time': forms.TimeInput(attrs={'type': 'time', 'class': 'small_form_field'}),
             'duration': forms.NumberInput(attrs={'class': 'small_form_field center-field', 'max': 3}),
-            'special_reqs': forms.Textarea(attrs={'class': 'form_text_area', 'rows': 4}),
+            'special_reqs': forms.Textarea(attrs={
+                'class': 'form_text_area center-field',
+                'rows': 4,
+                'placeholder': 'Let us know if you have any allergies or other special requirements.'
+            }),
         }
         labels = {
             'duration': 'Booking duration (max 3 hours)',
             'number_of_guests': 'Number of guests (max 6)',
-            'special_reqs': 'Special Requests',
+            'special_reqs': 'Special Requirements',
         }
         help_texts = {
-            'special_reqs': 'Let us know if you have any allergies or other special requirements.',
+            # 'special_reqs': 'Let us know if you have any allergies or other special requirements.',
         }

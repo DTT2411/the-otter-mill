@@ -1,27 +1,61 @@
+/* Google Font import */
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Gudea:ital,wght@0,400;0,700;1,400&display=swap');
+
 /* Variables */
+:root {
+    --headings-font: "Eagle Lake", cursive;
+    --main-font: "Gudea", sans-serif;
+    --primary-color: cadetblue;
+    --secondary-color: bisque;
+}
+
 
 /* Global Styles */
 body {
     background-color: cadetblue;
+    font-family: var(--main-font);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--headings-font);
 }
 
 nav {
-    background-color: bisque;
+    background-color:aliceblue;
 }
 
-form {
-    margin-left: 50px;
-    margin-right: 50px;
+footer {
+    font-size: smaller;
+    margin-bottom: 10px;
 }
 
 footer i {
     color: black;
 }
 
+/* Custom styling for homepage */
+.about {
+    border: solid 4px var(--secondary-color);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* .about p {
+    font-size: small;
+} */
 
 /* Custom styling for reservation_form.html */
 
 /* Limits the size of form fields */
+form {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+form h1 {
+    text-align: center;
+}
+
 .small_form_field {
     max-width: 200px;
     width: 100%;
@@ -36,8 +70,7 @@ footer i {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
-    /* display: inline-block; */
+    text-align: left;
 }
 
 .center-label {
@@ -55,4 +88,14 @@ footer i {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 60px;
+}
+
+/* Media Queries */
+
+/* Medium screens (tablet, 768px and up) */
+@media screen and (min-width: 768px) {
+    .about p {
+        font-size: large;
+    }
 }
