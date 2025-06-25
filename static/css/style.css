@@ -44,6 +44,18 @@ footer i {
     font-size: small;
 } */
 
+/* Custom styling for reservation_list.html */
+#reservation-list {
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+}
+
+
+
 /* Custom styling for reservation_form.html */
 
 /* Limits the size of form fields */

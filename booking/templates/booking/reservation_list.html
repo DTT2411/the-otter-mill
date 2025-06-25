@@ -9,7 +9,7 @@
 {% endif %}
 {% if object_list %}
   {% for booking in object_list %}
-  <div class="d-flex align-items-center justify-content-between border rounded">
+  <div id="reservation-list" class="d-flex align-items-center justify-content-between border rounded">
   <div>
   <p>Time: {{ booking.time }}</p>
   <p>Date: {{ booking.date }}</p>
