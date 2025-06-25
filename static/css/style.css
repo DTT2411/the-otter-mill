@@ -3,6 +3,10 @@ form {
     margin-right: 50px;
 }
 
+footer i {
+    color: black;
+}
+
 
 /* Custom styling for reservation_form.html */
 
