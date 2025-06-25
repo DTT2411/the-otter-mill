@@ -10,6 +10,7 @@ class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
         fields = ['number_of_guests', 'date', 'time', 'duration', 'special_reqs']
+        # Adds custom css classes and maxmimum values (where appropriate) to reservation form fields
         widgets = {
             'number_of_guests': forms.NumberInput(attrs={'class': 'small_form_field center-field', 'max': 6}),
             'date': forms.DateInput(attrs={'type': 'date', 'class': 'small_form_field'}),
@@ -21,11 +22,9 @@ class ReservationForm(forms.ModelForm):
                 'placeholder': 'Let us know if you have any allergies or other special requirements.'
             }),
         }
+        # Adds labels to fields requiring additional context
         labels = {
             'duration': 'Booking duration (max 3 hours)',
             'number_of_guests': 'Number of guests (max 6)',
             'special_reqs': 'Special Requirements',
-        }
-        help_texts = {
-            # 'special_reqs': 'Let us know if you have any allergies or other special requirements.',
         }

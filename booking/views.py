@@ -9,9 +9,11 @@ from datetime import datetime, timedelta
 
 # Create your views here.
 
+# If the user is not logged in, they will be redirected to the login page
 @login_required
 def create_reservation(request):
 
+    # Initialises the error and table variables which will be passed to the template
     error_message = None
     assigned_table = None
 
@@ -73,6 +75,7 @@ def delete_reservation(request, reservation_id):
         reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
         reservation.delete()
         messages.success(request, "Reservation deleted successfully.")
+    # The "My Bookings" screen is refreshed after deletion
     return redirect('my_bookings')
 
 
@@ -83,7 +86,7 @@ def display_homepage(request):
 class BookingList(generic.ListView):
     model = Reservation
     template_name = "booking/reservation_list.html"
-    
-    # Returns a list of bookings, restricted to only those made by the currently logged-in user.
+
+    # Returns a list of bookings, restricted to only those made by the currently logged-in user
     def get_queryset(self):
         return Reservation.objects.filter(guest=self.request.user).order_by('date', 'time')
