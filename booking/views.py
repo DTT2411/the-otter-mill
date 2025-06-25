@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
-from django.db.models import Q
+from django.contrib import messages
 from .models import Reservation, Table
 from .forms import ReservationForm
 from datetime import datetime, timedelta
@@ -8,12 +8,12 @@ from datetime import datetime, timedelta
 
 
 # Create your views here.
-# def my_booking(request):
+# def my_bookings(request):
 #     return HttpResponse("Hello, this is the booking page!")
 
 
 def create_reservation(request):
-    
+
     error_message = None
     assigned_table = None
 
@@ -29,8 +29,8 @@ def create_reservation(request):
             duration = reservation.duration
 
             # Calculate requested start and end datetime
-            requested_reservation_start = datetime.combine(date, time)
-            requested_reservation_end = requested_start + timedelta(minutes=duration)
+            requested_start = datetime.combine(date, time)
+            requested_end = requested_start + timedelta(minutes=duration)
 
             # Get tables with enough capacity
             suitable_tables = Table.objects.filter(capacity__gte=number_of_guests).order_by('capacity')
@@ -38,21 +38,22 @@ def create_reservation(request):
             for table in suitable_tables:
                 # Calculate end time for each existing reservation and check for overlap
                 has_overlap = False
-                for existing_reservation in Reservation.objects.filter(table=table, date=date):
-                    existing_reservation_start = datetime.combine(existing_reservation.date, existing_reservation.time)
-                    existing_reservation_end = existing_reservation_start + timedelta(minutes=existing_reservation.duration)
+                for existing in Reservation.objects.filter(table=table, date=date):
+                    existing_start = datetime.combine(existing.date, existing.time)
+                    existing_end = existing_start + timedelta(minutes=existing.duration)
                     # Overlap if requested_start < existing_end and requested_end > existing_start
-                    if requested_reservation_start < existing_reservation_end and requested_reservation_end > existing_reservation_start:
+                    if requested_start < existing_end and requested_end > existing_start:
                         has_overlap = True
                         break
                 if not has_overlap:
                     available_tables.append(table)
 
             if available_tables:
-                # Assigns the first available table to the booking
                 assigned_table = available_tables[0]
                 reservation.table = assigned_table
                 reservation.save()
+                messages.success(request, "Reservation successful!")
+                return redirect('create_reservation')
             else:
                 error_message = "No available table for the selected date, time, and number of guests."
         else:
