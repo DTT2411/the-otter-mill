@@ -1,17 +1,16 @@
 {% extends "base.html" %}
-
+{% load static %}
+<!-- Allows page-specific styling for the <main> element -->
+{% block main_class %} class="homepage-main"{% endblock %}
 {% block content %}
-<!-- This contains the default page with a hero image and intro text -->
 
+<!-- This contains the default page with a hero image and intro text -->
 <div class="container">
     <div class="row">
-        <h1 style="text-align: center; margin-bottom: 40px;">The Otter Mill</h1>
+        <h1 class="homepage-header">The Otter Mill</h1>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-6">
-            <img src="" alt="" class="hero-image">
-        </div>
-        <div class="col-12 col-lg-6 about">
+        <div class="col-12 about">
             <h2>About Us</h2>
             <p>
                 Established in 1965 by award-winning chef, Tam Spraggins, The Otter Mill specialises in traditional Scottish cuisine with a few modern twists.<br>
