@@ -2,7 +2,8 @@
 {% load static %}
 {% block main_class %} class="main-image"{% endblock %}
 {% block content %}
-<h1 id="reservation-list-header">Bookings for {{ user.username }}</h1>
+<!-- <h1 id="reservation-list-header">Bookings for {{ user.username }}</h1> -->
+ <h1 id="reservation-list-header">Bookings for {{ user.first_name }} {{ user.last_name }}</h1>
 <br>
 {% if object_list %}
   {% for booking in object_list %}
