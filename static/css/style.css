@@ -22,6 +22,10 @@ h1, h2, h3, h4 {
     font-family: var(--headings-font);
 }
 
+.content-div {
+    background-color: var(--primary-color);
+}
+
 nav {
     background-color: var(--primary-color);
     font-family: var(--main-font);
@@ -52,7 +56,7 @@ footer i {
 }
 
 /* Custom styling for homepage */
-.homepage-main {
+.main-image {
     background-image: url('../img/hero-image.jpg');
     background-size: cover;
     background-position: center top;
@@ -77,6 +81,14 @@ footer i {
 /* Custom styling for reservation_list.html */
 #reservation-list-header {
     text-align: center;
+    width: 500px;
+    background-color: #30011E;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
 }
 
 #reservation-list {
@@ -91,6 +103,46 @@ footer i {
 }
 
 /* Custom styling for reservation_form.html */
+#reservation-form {
+    text-align: center;
+    background-color: #30011E;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
+}
+
+/* Custom styling for logout.html */
+#logout-div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
+}
+
+/* Custom styling for login.html & signup.html */
+#login-div, #signup-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
+}
+
+/* Custom styling for login.html & signup.html */
+#signup-div {
+    padding: 20px;
+}
+
+#signup-div li {
+    max-width: 300px;
+}
 
 /* Limits the size of form fields */
 form {
