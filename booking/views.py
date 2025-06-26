@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -67,6 +67,51 @@ def create_reservation(request):
     else:
         form = ReservationForm()
     return render(request, 'booking/reservation_form.html', {"form": form, "error_message": error_message, "assigned_table": assigned_table})
+
+
+@login_required
+def edit_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
+    error_message = None
+    assigned_table = reservation.table
+
+    if request.method == 'POST':
+        form = ReservationForm(data=request.POST, instance=reservation)
+        if form.is_valid():
+            updated_reservation = form.save(commit=False)
+            number_of_guests = updated_reservation.number_of_guests
+            date = updated_reservation.date
+            time = updated_reservation.time
+            duration = updated_reservation.duration
+            requested_reservation_start = datetime.combine(date, time)
+            requested_reservation_end = requested_reservation_start + timedelta(minutes=duration)
+
+            suitable_tables = Table.objects.filter(capacity__gte=number_of_guests).order_by('capacity')
+            available_tables = []
+            for table in suitable_tables:
+                has_overlap = False
+                for existing_reservation in Reservation.objects.filter(table=table, date=date).exclude(id=reservation.id):
+                    existing_reservation_start = datetime.combine(existing_reservation.date, existing_reservation.time)
+                    existing_end = existing_reservation_start + timedelta(minutes=existing_reservation.duration)
+                    if requested_reservation_start < existing_end and requested_reservation_end > existing_reservation_start:
+                        has_overlap = True
+                        break
+                if not has_overlap:
+                    available_tables.append(table)
+
+            if available_tables:
+                assigned_table = available_tables[0]
+                updated_reservation.table = assigned_table
+                updated_reservation.save()
+                messages.success(request, "Reservation updated successfully!")
+                return redirect('my_bookings')
+            else:
+                error_message = "No available table at your selected time."
+        else:
+            error_message = "Invalid form submission."
+    else:
+        form = ReservationForm(instance=reservation)
+    return render(request, 'booking/reservation_form.html', {"form": form, "error_message": error_message, "assigned_table": assigned_table, "edit_mode": True})
 
 
 def delete_reservation(request, reservation_id):

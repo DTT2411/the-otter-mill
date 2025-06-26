@@ -12,14 +12,17 @@
   <p>Date: {{ booking.date }}</p>
   <p>Duration: {{ booking.duration }} hour(s)</p>
   <p>Table: {{ booking.table.table_id }}</p>
+  <p>No. of guests: {{ booking.number_of_guests }}</p>
   <p>Booked on: {{ booking.created_on }}</p>
+  <p>Special reqs: {{ booking.special_reqs }}</p>
   </div>
   <!-- Clicking submit sends a POST request to delete the associated booking -->
   <!-- JS event handler will throw a modal to confirm before deletion -->
-  <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation">
+  <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation" style="display:inline-block;">
   {% csrf_token %}
   <button type="submit" class="btn btn-danger btn-sm">Delete</button>
   </form>
+  <a href="{% url 'edit_reservation' booking.id %}" class="btn btn-warning btn-sm edit-reservation" style="margin-left: 8px; display:inline-block;">Edit</a>
   </div>
   {% endfor %}
 {% else %}
