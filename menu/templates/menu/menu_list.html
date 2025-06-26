@@ -9,7 +9,7 @@
         <ul>
             {% for item in object_list %}
             {% if item.type == 0 %}
-                <li>{{ item.name }} — £{{ item.price }}</li>
+                <li>{{ item.name }} — £{{ item.price|floatformat:2 }}</li>
             {% endif %}
             {% endfor %}
         </ul>
@@ -19,7 +19,7 @@
         <ul>
             {% for item in object_list %}
             {% if item.type == 1 %}
-                <li>{{ item.name }} — £{{ item.price }}</li>
+                <li>{{ item.name }} — £{{ item.price|floatformat:2 }}</li>
             {% endif %}
             {% endfor %}
         </ul>
@@ -29,7 +29,7 @@
         <ul>
             {% for item in object_list %}
             {% if item.type == 2 %}
-                <li>{{ item.name }} — £{{ item.price }}</li>
+                <li>{{ item.name }} — £{{ item.price|floatformat:2 }}</li>
             {% endif %}
             {% endfor %}
     </ul>
@@ -39,7 +39,7 @@
         <ul>
             {% for item in object_list %}
             {% if item.type == 3 %}
-                <li>{{ item.name }} — £{{ item.price }}</li>
+                <li>{{ item.name }} — £{{ item.price|floatformat:2 }}</li>
             {% endif %}
             {% endfor %}
         </ul>
