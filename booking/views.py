@@ -142,7 +142,6 @@ def display_homepage(request):
 class BookingList(generic.ListView):
     model = Reservation
     template_name = "booking/reservation_list.html"
-
     # Returns a list of bookings, restricted to only those made by the currently logged-in user
     def get_queryset(self):
         return Reservation.objects.filter(guest=self.request.user).order_by('date', 'time')

@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% block main_class %} class="main-image"{% endblock %}
-<!-- Allows homepage-specific styling for the <main> element -->
 {% block content %}
 {% if messages %}
   {% for message in messages %}
@@ -25,4 +24,4 @@
     </div>
 </div>
 
- {% endblock %}
+{% endblock %}

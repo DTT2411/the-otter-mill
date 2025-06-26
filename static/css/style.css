@@ -39,8 +39,23 @@ nav {
     font-family: var(--main-font);
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link:focus {
     color: var(--tertiary-color);
+}
+
+/* Call-to-action button for Book Now */
+.cta-button {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 8px 22px;
+    margin-left: 10px;
+}
+.cta-button:hover, .cta-button:focus {
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
 /* Sets the hero image to use as the background for all pages via class blocks */
@@ -92,7 +107,6 @@ footer i {
     background-color: #30011E;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
     padding: 10px;
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
@@ -188,6 +202,34 @@ form h1 {
     margin-right: 10px;
 }
 
+/* Custom styling for menu_list.html */
+#menu-list-header {
+    text-align: center;
+    width: 200px;
+    background-color: #30011E;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
+}
+
+.menu-section {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    border: solid 3px var(--primary-color);
+}
+
+.menu-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 
 /* Custom styling for logout.html */
 #logout-div {
@@ -234,5 +276,9 @@ form h1 {
 @media screen and (min-width: 768px) {
     .about p {
         font-size: large;
+    }
+
+    .menu-section {
+        width: 550px;
     }
 }

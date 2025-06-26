@@ -1,1 +1,48 @@
-<h1>THIS IS THE MENU PAGE</h1>
+{% extends "base.html" %}
+{% load static %}
+{% block main_class %} class="main-image"{% endblock %}
+{% block content %}
+<h1 id="menu-list-header">Menu</h1>
+<div class="d-flex flex-column rounded">
+    <div class="menu-section">
+        <h3>Starters</h3>
+        <ul>
+            {% for item in object_list %}
+            {% if item.type == 0 %}
+                <li>{{ item.name }} — £{{ item.price }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="menu-section">
+        <h3>Mains</h3>
+        <ul>
+            {% for item in object_list %}
+            {% if item.type == 1 %}
+                <li>{{ item.name }} — £{{ item.price }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="menu-section">
+        <h3>Desserts</h3>
+        <ul>
+            {% for item in object_list %}
+            {% if item.type == 2 %}
+                <li>{{ item.name }} — £{{ item.price }}</li>
+            {% endif %}
+            {% endfor %}
+    </ul>
+    </div>
+    <div class="menu-section">
+        <h3>Drinks</h3>
+        <ul>
+            {% for item in object_list %}
+            {% if item.type == 3 %}
+                <li>{{ item.name }} — £{{ item.price }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
