@@ -99,7 +99,12 @@ footer i {
     display: flex;
     padding: 10px;
     color: var(--primary-color);
-    background-color: var(--secondary-color);
+    background-color: var(--tertiary-color);
+    border: solid 3px var(--primary-color);
+}
+
+.reservation-data-label {
+    font-weight: bold;
 }
 
 /* Custom styling for reservation_form.html */
@@ -148,9 +153,9 @@ form h1 {
 }
 
 .btn {
-    border: solid black 2px;
-    color: black;
-    background-color: white;
+    border: solid var(--primary-color) 2px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
     display: block;
     text-align: center;
     margin-left: auto;

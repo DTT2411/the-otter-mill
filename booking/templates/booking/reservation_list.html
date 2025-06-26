@@ -8,13 +8,13 @@
   {% for booking in object_list %}
   <div id="reservation-list" class="d-flex flex-column rounded">
     <div>
-      <p>Time: {{ booking.time }}</p>
-      <p>Date: {{ booking.date }}</p>
-      <p>Duration: {{ booking.duration }} hour(s)</p>
-      <p>Table: {{ booking.table.table_id }}</p>
-      <p>No. of guests: {{ booking.number_of_guests }}</p>
-      <p>Booked on: {{ booking.created_on }}</p>
-      <p>Special reqs: {{ booking.special_reqs }}</p>
+      <p><span class="reservation-data-label">Time: </span>{{ booking.time }}</p>
+      <p><span class="reservation-data-label">Date: </span>{{ booking.date }}</p>
+      <p><span class="reservation-data-label">Duration: </span>{{ booking.duration }} hour(s)</p>
+      <p><span class="reservation-data-label">Table: </span>{{ booking.table.table_id }}</p>
+      <p><span class="reservation-data-label">No. of guests: </span>{{ booking.number_of_guests }}</p>
+      <p><span class="reservation-data-label">Booked on: </span>{{ booking.created_on }}</p>
+      <p><span class="reservation-data-label">Special reqs: </span>{{ booking.special_reqs }}</p>
     </div>
 
     <div class="d-flex justify-content-center">
