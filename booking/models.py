@@ -24,7 +24,8 @@ class Reservation(models.Model):
     table = models.ForeignKey(
         Table, on_delete=models.CASCADE, related_name="reserved_table"
     )
-    number_of_guests = models.PositiveIntegerField(validators=[MaxValueValidator(6)])
+    number_of_guests = models.PositiveIntegerField(
+        validators=[MaxValueValidator(6)])
     time = models.TimeField()
     date = models.DateField()
     duration = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
@@ -35,5 +36,5 @@ class Reservation(models.Model):
         ordering = ["-time", "-date"]
 
     def __str__(self):
-        return f"Time: {self.time} | Date: {self.date} | Guest: {self.guest.username} | Table: {self.table.table_id}"
-    
+        return f"Time: {self.time} | Date: {self.date} | Guest: {
+            self.guest.username} | Table: {self.table.table_id}"

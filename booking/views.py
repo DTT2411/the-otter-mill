@@ -72,8 +72,9 @@ def create_reservation(request):
 def edit_reservation(request, reservation_id):
 
     # Pulls the existing reservation based on its ID
-    reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
-    # Initialises the error and table variables which will be passed to the template
+    reservation = get_object_or_404(Reservation, id=reservation_id,
+                                    guest=request.user)
+    # Initialises the variables which will be passed to the template
     error_message = None
     assigned_table = reservation.table
 
@@ -126,7 +127,6 @@ def edit_reservation(request, reservation_id):
 
 
 def delete_reservation(request, reservation_id):
-    from django.shortcuts import get_object_or_404
     if request.method == 'POST':
         reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
         reservation.delete()
@@ -143,5 +143,6 @@ class BookingList(generic.ListView):
     model = Reservation
     template_name = "booking/reservation_list.html"
     # Returns a list of bookings, restricted to only those made by the currently logged-in user
+
     def get_queryset(self):
         return Reservation.objects.filter(guest=self.request.user).order_by('date', 'time')

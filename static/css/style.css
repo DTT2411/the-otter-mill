@@ -43,6 +43,10 @@ nav {
     color: var(--tertiary-color);
 }
 
+.navbar-toggler {
+    background-color: var(--secondary-color);
+}
+
 /* Call-to-action button for Book Now */
 .cta-button {
     background-color: var(--secondary-color);
@@ -51,7 +55,10 @@ nav {
     border-radius: 10px;
     padding: 8px 22px;
     margin-left: 10px;
+    width: 120px;
+    text-align: center;
 }
+
 .cta-button:hover, .cta-button:focus {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
@@ -113,7 +120,7 @@ footer i {
 }
 
 #reservation-list {
-    max-width: 350px;
+    width: 350px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -278,7 +285,20 @@ form h1 {
         font-size: large;
     }
 
+
+    #reservation-list {
+        width: 600px;
+        height: 350px;
+    }
+
     .menu-section {
         width: 550px;
+    }
+}
+
+/* Medium screens (tablet, 992px and up) */
+@media screen and (min-width: 992px) {
+    .cta-button {
+        width: 100%;
     }
 }
