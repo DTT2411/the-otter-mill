@@ -1,0 +1,147 @@
+/* Google Font import */
+@import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Gudea:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* Variables */
+:root {
+    --headings-font: "Eagle Lake", cursive;
+    --main-font: "Gudea", sans-serif;
+    --primary-color: #30011E;
+    --secondary-color: #d7fcd4;
+    --tertiary-color: #B6CCA1;
+}
+
+
+/* Global Styles */
+body {
+    background-color: var(--primary-color);
+    font-family: var(--main-font);
+    color: var(--secondary-color);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--headings-font);
+}
+
+nav {
+    background-color: var(--primary-color);
+    font-family: var(--main-font);
+}
+
+.navbar-header {
+    margin-right: 20px;
+}
+
+.nav-link {
+    color: var(--secondary-color);
+    font-family: var(--main-font);
+}
+
+.nav-link:hover {
+    color: var(--tertiary-color);
+}
+
+footer {
+    font-size: smaller;
+    color: var(--secondary-color);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer i {
+    color: var(--secondary-color)
+}
+
+/* Custom styling for homepage */
+.homepage-main {
+    background-image: url('../img/hero-image.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    width: 100vw;
+}
+
+.about, .homepage-header {
+    border: solid 4px var(--secondary-color);
+    border-radius: 10px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+}
+
+.homepage-header {
+    margin-bottom: 50px;
+}
+
+/* Custom styling for reservation_list.html */
+#reservation-list-header {
+    text-align: center;
+}
+
+#reservation-list {
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    display: flex;
+    padding: 10px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+/* Custom styling for reservation_form.html */
+
+/* Limits the size of form fields */
+form {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+form h1 {
+    text-align: center;
+}
+
+.small_form_field {
+    max-width: 200px;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.form_text_area {
+    max-width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.center-label {
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    border: solid black 2px;
+    color: black;
+    background-color: white;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 60px;
+}
+
+/* Media Queries */
+
+/* Medium screens (tablet, 768px and up) */
+@media screen and (min-width: 768px) {
+    .about p {
+        font-size: large;
+    }
+}
