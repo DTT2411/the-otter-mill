@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 @login_required
 def create_reservation(request):
 
-    # Initialises the error and table variables which will be passed to the template
+    # Initialises the variables which will be passed to the template
     error_message = None
     assigned_table = None
 

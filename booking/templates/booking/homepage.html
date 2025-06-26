@@ -3,9 +3,9 @@
 {% block main_class %} class="main-image"{% endblock %}
 {% block content %}
 {% if messages %}
-  {% for message in messages %}
+    {% for message in messages %}
     <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-  {% endfor %}
+    {% endfor %}
 {% endif %}
 <!-- This contains the default page with a hero image and intro text -->
 <div class="container">

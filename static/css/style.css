@@ -47,7 +47,6 @@ nav {
     background-color: var(--secondary-color);
 }
 
-/* Call-to-action button for Book Now */
 .cta-button {
     background-color: var(--secondary-color);
     color: var(--primary-color);
@@ -90,8 +89,6 @@ footer i {
     font-size: 200%;
     margin-right: 5px;
 }
-
-
 
 /* Custom styling for homepage */
 .about, .homepage-header {
@@ -284,7 +281,6 @@ form h1 {
     .about p {
         font-size: large;
     }
-
 
     #reservation-list {
         width: 600px;
