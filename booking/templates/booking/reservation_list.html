@@ -2,8 +2,7 @@
 {% load static %}
 {% block main_class %} class="main-image"{% endblock %}
 {% block content %}
-<!-- <h1 id="reservation-list-header">Bookings for {{ user.username }}</h1> -->
- <h1 id="reservation-list-header">Bookings for {{ user.first_name }} {{ user.last_name }}</h1>
+<h1 id="reservation-list-header">Bookings for {{ user.username }}</h1>
 <br>
 {% if object_list %}
   {% for booking in object_list %}
@@ -32,6 +31,6 @@
   </div>
   {% endfor %}
 {% else %}
-  <p>You have no bookings.</p>
+  <p id="no-booking-message">You have no bookings.</p>
 {% endif %}
 {% endblock %}

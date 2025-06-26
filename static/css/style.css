@@ -114,6 +114,19 @@ footer i {
     font-weight: bold;
 }
 
+#no-booking-message {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    text-align: center;
+    width: 180px;
+    display: flex;
+    padding: 10px;
+    color: var(--primary-color);
+    background-color: var(--tertiary-color);
+    border: solid 3px var(--primary-color);
+}
+
 /* Custom styling for reservation_form.html */
 #reservation-form {
     text-align: center;
