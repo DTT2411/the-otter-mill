@@ -5,6 +5,9 @@ TYPE = ((0, "Starter"), (1, "Main"), (2, "Dessert"), (3, "Drink"))
 
 # Create your models here.
 class MenuItem(models.Model):
+    """
+    Stores a single menu item with key information.
+    """
     name = models.CharField(max_length=200)
     type = models.IntegerField(choices=TYPE, default=0)
     price = models.FloatField(validators=[MinValueValidator(0)])

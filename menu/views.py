@@ -8,6 +8,9 @@ from .models import MenuItem
 
 
 class MenuList(generic.ListView):
+    """
+    Renders a list of all MenuItem objects to the menu_list.html template.
+    """
     model = MenuItem
     template_name = "menu/menu_list.html"
 
