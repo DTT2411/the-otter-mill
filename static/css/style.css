@@ -158,6 +158,11 @@ form h1 {
     margin-bottom: 60px;
 }
 
+#delete-reservation-button, #edit-reservation-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 
 /* Custom styling for logout.html */
 #logout-div {

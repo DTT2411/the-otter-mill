@@ -6,23 +6,28 @@
 <br>
 {% if object_list %}
   {% for booking in object_list %}
-  <div id="reservation-list" class="d-flex align-items-center justify-content-between border rounded">
-  <div>
-  <p>Time: {{ booking.time }}</p>
-  <p>Date: {{ booking.date }}</p>
-  <p>Duration: {{ booking.duration }} hour(s)</p>
-  <p>Table: {{ booking.table.table_id }}</p>
-  <p>No. of guests: {{ booking.number_of_guests }}</p>
-  <p>Booked on: {{ booking.created_on }}</p>
-  <p>Special reqs: {{ booking.special_reqs }}</p>
-  </div>
-  <!-- Clicking submit sends a POST request to delete the associated booking -->
-  <!-- JS event handler will throw a modal to confirm before deletion -->
-  <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation" style="display:inline-block;">
-  {% csrf_token %}
-  <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-  </form>
-  <a href="{% url 'edit_reservation' booking.id %}" class="btn btn-warning btn-sm edit-reservation" style="margin-left: 8px; display:inline-block;">Edit</a>
+  <div id="reservation-list" class="d-flex flex-column rounded">
+    <div>
+      <p>Time: {{ booking.time }}</p>
+      <p>Date: {{ booking.date }}</p>
+      <p>Duration: {{ booking.duration }} hour(s)</p>
+      <p>Table: {{ booking.table.table_id }}</p>
+      <p>No. of guests: {{ booking.number_of_guests }}</p>
+      <p>Booked on: {{ booking.created_on }}</p>
+      <p>Special reqs: {{ booking.special_reqs }}</p>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation" id="delete-reservation-button">
+        {% csrf_token %}
+        <!-- Clicking delete sends a POST request to delete the associated booking -->
+        <!-- JS event handler will throw a modal to confirm before deletion -->
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+      </form>
+      <!-- Clicking edit sends a POST request to amend the associated booking -->
+      <!-- JS event handler will throw a modal to confirm before update -->
+      <a href="{% url 'edit_reservation' booking.id %}" class="btn btn-warning btn-sm edit-reservation" id="edit-reservation-button">Edit</a>
+    </div>
   </div>
   {% endfor %}
 {% else %}
