@@ -201,6 +201,11 @@ form h1 {
     margin-bottom: 60px;
 }
 
+#submitButton:hover {
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+}
+
 #delete-reservation-button, #edit-reservation-button {
     margin-left: 10px;
     margin-right: 10px;
@@ -227,11 +232,16 @@ form h1 {
     color: var(--primary-color);
     background-color: var(--tertiary-color);
     border: solid 3px var(--primary-color);
+    font-size: small;
 }
 
 .menu-section ul {
     list-style-type: none;
     padding-left: 0;
+}
+
+.menu-section li {
+    margin-bottom: 5px;
 }
 
 
@@ -288,7 +298,8 @@ form h1 {
     }
 
     .menu-section {
-        width: 550px;
+        width: 530px;
+        font-size: medium;
     }
 }
 
