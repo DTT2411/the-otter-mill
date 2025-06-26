@@ -1,8 +1,6 @@
 from django import forms
 from django.utils import timezone
-from django.core.exceptions import ValidationError
 from .models import Reservation
-import datetime
 
 class ReservationForm(forms.ModelForm):
     class Meta:
@@ -19,7 +17,7 @@ class ReservationForm(forms.ModelForm):
                 }),
             'time': forms.TimeInput(
                 attrs={
-                    'type': 'time',
+                    'type': 'time', 
                     'class': 'small_form_field',
                     'min': '12:00',
                     'max': '22:00',
@@ -33,7 +31,8 @@ class ReservationForm(forms.ModelForm):
                 attrs={
                     'class': 'form_text_area center-field',
                     'rows': 4,
-                    'placeholder': 'Let us know if you have any allergies or other special requirements.'
+                    'placeholder': 'Let us know if you have any allergies or other special requirements.',
+                    'maxlength': 300,
                 }),
         }
         # Adds labels to fields requiring additional context
@@ -43,3 +42,12 @@ class ReservationForm(forms.ModelForm):
             'special_reqs': 'Special Requirements',
         }
 
+    def clean_time(self):
+        time = self.cleaned_data['time']
+        import datetime
+        min_time = datetime.time(12, 0)
+        max_time = datetime.time(22, 0)
+        if not (min_time <= time <= max_time):
+            from django.core.exceptions import ValidationError
+            raise ValidationError("Booking time must be between 12:00 and 22:00.")
+        return time
