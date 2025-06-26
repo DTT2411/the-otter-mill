@@ -114,37 +114,6 @@ footer i {
     border-radius: 10px;
 }
 
-/* Custom styling for logout.html */
-#logout-div {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-    padding: 10px;
-    border: solid 5px var(--tertiary-color);
-    border-radius: 10px;
-}
-
-/* Custom styling for login.html & signup.html */
-#login-div, #signup-div {
-    margin-left: auto;
-    margin-right: auto;
-    width: 500px;
-    padding: 10px;
-    border: solid 5px var(--tertiary-color);
-    border-radius: 10px;
-}
-
-/* Custom styling for login.html & signup.html */
-#signup-div {
-    padding: 20px;
-}
-
-#signup-div li {
-    max-width: 300px;
-}
-
-/* Limits the size of form fields */
 form {
     margin-left: 50px;
     margin-right: 50px;
@@ -188,6 +157,38 @@ form h1 {
     margin-right: auto;
     margin-bottom: 60px;
 }
+
+
+/* Custom styling for logout.html */
+#logout-div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
+}
+
+/* Custom styling for login.html & signup.html */
+#login-div, #signup-div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    padding: 10px;
+    border: solid 5px var(--tertiary-color);
+    border-radius: 10px;
+}
+
+/* Custom styling for login.html & signup.html */
+#signup-div {
+    padding: 20px;
+}
+
+#signup-div li {
+    max-width: 300px;
+}
+
 
 /* Media Queries */
 
