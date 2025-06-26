@@ -11,7 +11,7 @@ class Table(models.Model):
     capacity = models.PositiveIntegerField()
 
     class Meta:
-        ordering = ["-table_id"]
+        ordering = ["table_id"]
 
     def __str__(self):
         return f"Table {self.table_id} | {self.capacity}-person table"

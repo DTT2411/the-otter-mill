@@ -3,7 +3,6 @@ from .models import MenuItem
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
-# admin.site.register(MenuItem)
 @admin.register(MenuItem)
 class MenuAdmin(SummernoteModelAdmin):
 

@@ -3,7 +3,13 @@ from .models import Reservation, Table
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
-admin.site.register(Table)
+@admin.register(Table)
+class TableAdmin(SummernoteModelAdmin):
+
+    list_display = ('table_id', 'capacity')
+    search_fields = ['table_id', 'capacity']
+    list_filter = ('table_id', 'capacity')
+
 @admin.register(Reservation)
 class BookingAdmin(SummernoteModelAdmin):
 
