@@ -37,7 +37,7 @@ class ReservationForm(forms.ModelForm):
                     'rows': 4,
                     'placeholder': 'Let us know if you have any allergies or '
                     'other special requirements.',
-                    'maxlength': 300,
+                    'maxlength': 100,
                 }),
         }
         # Adds labels to fields requiring additional context

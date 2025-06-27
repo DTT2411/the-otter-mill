@@ -85,7 +85,7 @@ def create_reservation(request):
         "form": form,
         "error_message": error_message,
         "assigned_table": assigned_table
-        })
+    })
 
 
 @login_required
@@ -169,7 +169,7 @@ def edit_reservation(request, reservation_id):
         "error_message": error_message,
         "assigned_table": assigned_table,
         "edit_mode": True
-        })
+    })
 
 
 def delete_reservation(request, reservation_id):
