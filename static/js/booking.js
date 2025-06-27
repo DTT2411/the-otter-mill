@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!confirm('Are you sure you want to delete this booking?')) {
                 event.preventDefault();
             }
+        });
+    });
     // Add confirmation for edit buttons
     document.querySelectorAll('a.edit-reservation').forEach(function(link) {
         link.addEventListener('click', function(event) {
-            if (!confirm('Are you sure you want to make these changes to the booking?')) {
+            if (!confirm('Are you sure you want to change this booking?')) {
                 event.preventDefault();
             }
         });
-    });
-});
     });
 });
