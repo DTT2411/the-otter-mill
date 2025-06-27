@@ -108,7 +108,6 @@ def edit_reservation(request, reservation_id):
                         break
                 if not has_overlap:
                     available_tables.append(table)
-
             if available_tables:
                 # Assigns the first available table based on the newly updated details
                 assigned_table = available_tables[0]
@@ -127,6 +126,9 @@ def edit_reservation(request, reservation_id):
 
 
 def delete_reservation(request, reservation_id):
+    """
+    Deletes a single reservation based on its ID.
+    """
     if request.method == 'POST':
         reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
         reservation.delete()
@@ -136,13 +138,18 @@ def delete_reservation(request, reservation_id):
 
 
 def display_homepage(request):
+    """
+    Renders the homepage template.
+    """
     return render(request, 'booking/homepage.html')
 
 
 class BookingList(generic.ListView):
+    """
+    Returns a list of bookings, restricted to only those made by the currently logged-in user.
+    """
     model = Reservation
     template_name = "booking/reservation_list.html"
-    # Returns a list of bookings, restricted to only those made by the currently logged-in user
 
     def get_queryset(self):
         return Reservation.objects.filter(guest=self.request.user).order_by('date', 'time')
