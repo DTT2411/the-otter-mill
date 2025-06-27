@@ -100,6 +100,10 @@ footer i {
     text-align: center;
 }
 
+.about h2 {
+    margin-bottom: 30px;
+}
+
 .homepage-header {
     margin-bottom: 50px;
 }
