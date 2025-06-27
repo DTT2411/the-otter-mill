@@ -19,6 +19,7 @@
 <h1 id="reservation-list-header">Bookings for {{ user.username }}</h1>
 
 {% if object_list %}
+  <!-- Creates an individual <div> element for each booking made by the logged-in user -->
   {% for booking in object_list %}
   <div id="reservation-list" class="d-flex flex-column rounded">
     <div>
@@ -28,7 +29,10 @@
       <p><span class="reservation-data-label">Table: </span>{{ booking.table.table_id }}</p>
       <p><span class="reservation-data-label">No. of guests: </span>{{ booking.number_of_guests }}</p>
       <p><span class="reservation-data-label">Booked on: </span>{{ booking.created_on }}</p>
+      <!-- Only lists special requirements (optional field) if it exists for the booking -->
+      {% if booking.special_reqs %}
       <p><span class="reservation-data-label">Special reqs: </span>{{ booking.special_reqs }}</p>
+      {% endif %}
     </div>
 
     <div class="d-flex justify-content-center">

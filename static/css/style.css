@@ -148,6 +148,21 @@ footer i {
     border: solid 3px var(--primary-color);
 }
 
+.btn {
+    border: solid var(--primary-color) 2px;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#delete-reservation-button, #edit-reservation-button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 /* Custom styling for reservation_form.html */
 #reservation-form {
     text-align: center;
@@ -193,25 +208,9 @@ form h1 {
     margin-right: auto;
 }
 
-.btn {
-    border: solid var(--primary-color) 2px;
-    color: var(--primary-color);
-    background-color: var(--secondary-color);
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 60px;
-}
-
 #submitButton:hover {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
-}
-
-#delete-reservation-button, #edit-reservation-button {
-    margin-left: 10px;
-    margin-right: 10px;
 }
 
 /* Custom styling for menu_list.html */
