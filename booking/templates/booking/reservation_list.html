@@ -23,8 +23,8 @@
   {% for booking in object_list %}
   <div id="reservation-list" class="d-flex flex-column rounded">
     <div>
-      <p><span class="reservation-data-label">Time: </span>{{ booking.time }}</p>
       <p><span class="reservation-data-label">Date: </span>{{ booking.date }}</p>
+      <p><span class="reservation-data-label">Time: </span>{{ booking.time }}</p>
       <p><span class="reservation-data-label">Duration: </span>{{ booking.duration }} hour(s)</p>
       <p><span class="reservation-data-label">Table: </span>{{ booking.table.table_id }}</p>
       <p><span class="reservation-data-label">No. of guests: </span>{{ booking.number_of_guests }}</p>
