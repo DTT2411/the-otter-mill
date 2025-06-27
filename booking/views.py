@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from django.views import generic
 from datetime import datetime, timedelta
 from .models import Reservation, Table
 from .forms import ReservationForm

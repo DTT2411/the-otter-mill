@@ -1,5 +1,5 @@
-from django.db import models
 from django.core.validators import MinValueValidator
+from django.db import models
 
 TYPE = ((0, "Starter"), (1, "Main"), (2, "Dessert"), (3, "Drink"))
 
