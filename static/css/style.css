@@ -288,15 +288,18 @@ form h1 {
 
 /* Medium screens (tablet, 768px and up) */
 @media screen and (min-width: 768px) {
+    /* Custom styling for homepage.html */
     .about p {
         font-size: large;
     }
 
+    /* Custom styling for reservation_list.html */
     #reservation-list {
         width: 600px;
         height: 350px;
     }
 
+    /* Custom styling for menu_list.html */
     .menu-section {
         width: 530px;
         font-size: medium;

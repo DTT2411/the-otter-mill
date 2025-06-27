@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from datetime import datetime, timedelta
 from .models import Reservation, Table
 from .forms import ReservationForm
-from datetime import datetime, timedelta
+
 
 
 # Create your views here.
@@ -12,7 +13,9 @@ from datetime import datetime, timedelta
 # If the user is not logged in, they will be redirected to the login page
 @login_required
 def create_reservation(request):
-
+    """
+    ADD DOCSTRING WITH CONTEXT
+    """
     # Initialises the variables which will be passed to the template
     error_message = None
     assigned_table = None
@@ -70,7 +73,9 @@ def create_reservation(request):
 
 @login_required
 def edit_reservation(request, reservation_id):
-
+    """
+    ADD DOCSTRING WITH CONTEXT
+    """
     # Pulls the existing reservation based on its ID
     reservation = get_object_or_404(Reservation, id=reservation_id,
                                     guest=request.user)
