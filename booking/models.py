@@ -36,7 +36,7 @@ class Reservation(models.Model):
     time = models.TimeField()
     date = models.DateField()
     duration = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
-    special_reqs = models.TextField(max_length=100)
+    special_reqs = models.TextField(max_length=100, blank=True)
     created_on = models.DateTimeField(auto_now=True)
 
     class Meta:
