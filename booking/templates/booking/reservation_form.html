@@ -1,17 +1,23 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block main_class %} class="main-image"{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
+
 {% if messages %}
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">{{ message }}</div>
     {% endfor %}
 {% endif %}
+
 {% if error_message %}
     <div class="alert alert-danger">{{ error_message }}</div>
 {% endif %}
+
 <form method="post" id="reservation-form">
     {% csrf_token %}
     <h1>Booking</h1>
@@ -42,4 +48,5 @@
     </div>
     <button id="submitButton" type="submit" class="btn">Submit</button>
 </form>
+
 {% endblock %}

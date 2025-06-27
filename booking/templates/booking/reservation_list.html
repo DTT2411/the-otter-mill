@@ -1,17 +1,23 @@
 {% extends "base.html" %}
+
 {% load static %}
+
 {% block main_class %} class="main-image"{% endblock %}
+
 {% block content %}
+
 {% if messages %}
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">{{ message }}</div>
     {% endfor %}
 {% endif %}
+
 {% if error_message %}
     <div class="alert alert-danger">{{ error_message }}</div>
 {% endif %}
+
 <h1 id="reservation-list-header">Bookings for {{ user.username }}</h1>
-<br>
+
 {% if object_list %}
   {% for booking in object_list %}
   <div id="reservation-list" class="d-flex flex-column rounded">
@@ -40,6 +46,6 @@
   {% endfor %}
 {% else %}
   <p id="no-booking-message">You have no bookings!</p>
-  
 {% endif %}
+
 {% endblock %}

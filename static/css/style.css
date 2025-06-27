@@ -115,6 +115,7 @@ footer i {
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
     font-size: small;
+    margin-bottom: 25px;
 }
 
 #reservation-list {
