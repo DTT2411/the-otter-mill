@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add confirmation for edit buttons
     document.querySelectorAll('a.edit-reservation').forEach(function(link) {
         link.addEventListener('click', function(event) {
-            if (!confirm('Are you sure you want to edit this booking?')) {
+            if (!confirm('Are you sure you want to make these changes to the booking?')) {
                 event.preventDefault();
             }
         });
