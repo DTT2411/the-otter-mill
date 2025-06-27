@@ -40,13 +40,11 @@ def create_reservation(request):
             requested_reservation_start = datetime.combine(date, time)
             # Calculates the requested end time by adding the duration to the
             # start time
-            requested_reservation_end = requested_reservation_start
-            + timedelta(minutes=duration)
+            requested_reservation_end = requested_reservation_start + timedelta(minutes=duration)
             # "capacity__gte" finds tables with capacity >= number of guests,
             # then puts them in ascending order so the smallest suitable table
             # is checked first
-            suitable_tables = Table.objects.filter(
-                capacity__gte=number_of_guests).order_by('capacity')
+            suitable_tables = Table.objects.filter(capacity__gte=number_of_guests).order_by('capacity')
             available_tables = []
             for table in suitable_tables:
                 # Calculates end time for each existing reservation and check
@@ -55,13 +53,11 @@ def create_reservation(request):
                 for existing_reservation in Reservation.objects.filter(table=table, date=date):
                     # Combines data & time into one variable for operations
                     # with timedelta
-                    existing_reservation_start = datetime.combine(
-                        existing_reservation.date, existing_reservation.time)
-                    existing_end = existing_reservation_start + timedelta(
-                        minutes=existing_reservation.duration)
+                    existing_reservation_start = datetime.combine(existing_reservation.date, existing_reservation.time)
+                    existing_reservation_end = existing_reservation_start + timedelta(minutes=existing_reservation.duration)
                     # If an overlap is found, breaks out of the loop so the
                     # next table can be checked
-                    if requested_reservation_start < existing_end and requested_reservation_end > existing_reservation_start:
+                    if requested_reservation_start < existing_reservation_end and requested_reservation_end > existing_reservation_start:
                         has_overlap = True
                         break
                 if not has_overlap:
@@ -106,8 +102,7 @@ def edit_reservation(request, reservation_id):
         Populates template with existing data to facilitate editing
     """
     # Pulls the existing reservation based on its ID
-    reservation = get_object_or_404(Reservation, id=reservation_id,
-                                    guest=request.user)
+    reservation = get_object_or_404(Reservation, id=reservation_id, guest=request.user)
     # Initialises the variables which will be passed to the template
     error_message = None
     assigned_table = reservation.table
@@ -124,13 +119,11 @@ def edit_reservation(request, reservation_id):
             requested_reservation_start = datetime.combine(date, time)
             # Calculates requested end time by adding the duration to the
             # start time
-            requested_reservation_end = requested_reservation_start
-            + timedelta(minutes=duration)
+            requested_reservation_end = requested_reservation_start + timedelta(minutes=duration)
             # "capacity__gte" finds tables with capacity >= number of guests,
             # then puts them in ascending order so the smallest suitable table
             # is checked first
-            suitable_tables = Table.objects.filter(
-                capacity__gte=number_of_guests).order_by('capacity')
+            suitable_tables = Table.objects.filter(capacity__gte=number_of_guests).order_by('capacity')
             available_tables = []
             for table in suitable_tables:
                 # Calculates end time for each existing reservation and check
@@ -139,11 +132,9 @@ def edit_reservation(request, reservation_id):
                 for existing_reservation in Reservation.objects.filter(table=table, date=date).exclude(id=reservation.id):
                     # Combines data & time into one variable for operations
                     # with timedelta
-                    existing_reservation_start = datetime.combine(
-                        existing_reservation.date, existing_reservation.time)
-                    existing_end = existing_reservation_start + timedelta(
-                        minutes=existing_reservation.duration)
-                    if requested_reservation_start < existing_end and requested_reservation_end > existing_reservation_start:
+                    existing_reservation_start = datetime.combine(existing_reservation.date, existing_reservation.time)
+                    existing_reservation_end = existing_reservation_start + timedelta(minutes=existing_reservation.duration)
+                    if requested_reservation_start < existing_reservation_end and requested_reservation_end > existing_reservation_start:
                         # If an overlap is found, breaks out of the loop so
                         # the next table can be checked
                         has_overlap = True
