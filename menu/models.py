@@ -6,7 +6,7 @@ TYPE = ((0, "Starter"), (1, "Main"), (2, "Dessert"), (3, "Drink"))
 
 class MenuItem(models.Model):
     """
-    Stores a single menu item with key information.
+    Stores a single menu item entry.
     """
     name = models.CharField(max_length=200)
     type = models.IntegerField(choices=TYPE, default=0)

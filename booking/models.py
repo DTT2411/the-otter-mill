@@ -6,6 +6,9 @@ from django.core.validators import MaxValueValidator
 # Create your models here.
 
 class Table(models.Model):
+    """
+    Stores a single table entry.
+    """
 
     table_id = models.PositiveIntegerField(unique=True)
     capacity = models.PositiveIntegerField()
@@ -18,6 +21,10 @@ class Table(models.Model):
 
 
 class Reservation(models.Model):
+    """
+    Stores a single reservation entry related to :model:`auth.User`
+    and :model:`booking.Table`.
+    """
     guest = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="reservations"
     )

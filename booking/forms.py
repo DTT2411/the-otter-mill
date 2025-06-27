@@ -11,16 +11,17 @@ class ReservationForm(forms.ModelForm):
         # Adds custom css classes and maxmimum values (where appropriate) to
         # reservation form fields
         widgets = {
-            'number_of_guests': forms.NumberInput(attrs={'class': 'small_form_field center-field', 'max': 6}),
+            'number_of_guests': forms.NumberInput(attrs={
+                'class': 'small_form_field center-field', 'max': 6}),
             'date': forms.DateInput(
                 attrs={
-                    'type': 'date', 
+                    'type': 'date',
                     'class': 'small_form_field',
-                    'min': timezone.now().date().isoformat(), # Today's date
+                    'min': timezone.now().date().isoformat(),  # Today's date
                 }),
             'time': forms.TimeInput(
                 attrs={
-                    'type': 'time', 
+                    'type': 'time',
                     'class': 'small_form_field',
                     'min': '12:00',
                     'max': '22:00',
@@ -34,7 +35,8 @@ class ReservationForm(forms.ModelForm):
                 attrs={
                     'class': 'form_text_area center-field',
                     'rows': 4,
-                    'placeholder': 'Let us know if you have any allergies or other special requirements.',
+                    'placeholder': 'Let us know if you have any allergies or '
+                    'other special requirements.',
                     'maxlength': 300,
                 }),
         }
