@@ -107,17 +107,19 @@ footer i {
 /* Custom styling for reservation_list.html */
 #reservation-list-header {
     text-align: center;
-    width: 500px;
+    width: 300px;
     background-color: #30011E;
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
+    font-size: small;
 }
 
 #reservation-list {
     width: 350px;
+    height: 370px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20px;
@@ -294,6 +296,11 @@ form h1 {
     }
 
     /* Custom styling for reservation_list.html */
+    #reservation-list-header {
+        width: 500px;
+        font-size: larger;
+    }
+    
     #reservation-list {
         width: 600px;
         height: 350px;
