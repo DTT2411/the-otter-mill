@@ -46,14 +46,3 @@ class ReservationForm(forms.ModelForm):
             'number_of_guests': 'Number of guests (max 6)',
             'special_reqs': 'Special Requirements',
         }
-
-    def clean_time(self):
-        time = self.cleaned_data['time']
-        import datetime
-        min_time = datetime.time(12, 0)
-        max_time = datetime.time(22, 0)
-        if not (min_time <= time <= max_time):
-            from django.core.exceptions import ValidationError
-            raise ValidationError(
-                "Booking time must be between 12:00 and 22:00.")
-        return time
