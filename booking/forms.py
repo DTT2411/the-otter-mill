@@ -2,11 +2,14 @@ from django import forms
 from django.utils import timezone
 from .models import Reservation
 
+
 class ReservationForm(forms.ModelForm):
     class Meta:
         model = Reservation
-        fields = ['number_of_guests', 'date', 'time', 'duration', 'special_reqs']
-        # Adds custom css classes and maxmimum values (where appropriate) to reservation form fields
+        fields = ['number_of_guests', 'date', 'time', 'duration',
+                  'special_reqs']
+        # Adds custom css classes and maxmimum values (where appropriate) to
+        # reservation form fields
         widgets = {
             'number_of_guests': forms.NumberInput(attrs={'class': 'small_form_field center-field', 'max': 6}),
             'date': forms.DateInput(
@@ -49,5 +52,6 @@ class ReservationForm(forms.ModelForm):
         max_time = datetime.time(22, 0)
         if not (min_time <= time <= max_time):
             from django.core.exceptions import ValidationError
-            raise ValidationError("Booking time must be between 12:00 and 22:00.")
+            raise ValidationError(
+                "Booking time must be between 12:00 and 22:00.")
         return time

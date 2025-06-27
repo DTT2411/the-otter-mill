@@ -3,7 +3,7 @@ from django.core.validators import MinValueValidator
 
 TYPE = ((0, "Starter"), (1, "Main"), (2, "Dessert"), (3, "Drink"))
 
-# Create your models here.
+
 class MenuItem(models.Model):
     """
     Stores a single menu item with key information.

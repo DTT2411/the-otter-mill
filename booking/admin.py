@@ -11,6 +11,7 @@ class TableAdmin(SummernoteModelAdmin):
     search_fields = ['table_id', 'capacity']
     list_filter = ('table_id', 'capacity')
 
+
 @admin.register(Reservation)
 class BookingAdmin(SummernoteModelAdmin):
 
@@ -18,5 +19,3 @@ class BookingAdmin(SummernoteModelAdmin):
     search_fields = ['guest', 'table']
     list_filter = ('guest', 'table', 'date')
     summernote_fields = ('special_reqs',)
-
-
