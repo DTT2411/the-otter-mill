@@ -21,13 +21,13 @@
 {% if object_list %}
 <table id="reservation-table" class="table">
   <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Time</th>
-      <th scope="col">Duration</th>
-      <th scope="col">Guests</th>
-      <th scope="col">Manage Booking</th>
-    </tr>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Duration</th>
+        <th scope="col">Guests</th>
+        <th scope="col">Manage Booking</th>
+      </tr>
   </thead>
   {% for booking in object_list %}
   <tbody class="table-group-divider">
@@ -51,7 +51,7 @@
           </td>
       </tr>
   </tbody>
-    {% endfor %}
+  {% endfor %}
 </table>
 
 {% else %}
