@@ -20,25 +20,25 @@
 
 <form method="post" id="reservation-form">
     {% csrf_token %}
-    <h1>Booking</h1>
+    <h1 class="text-center">Booking</h1>
     <div class="mb-3">
-        <label for="{{ form.number_of_guests.id_for_label }}" class="center-label">{{ form.number_of_guests.label }}</label>
+        <label for="{{ form.number_of_guests.id_for_label }}">{{ form.number_of_guests.label }}</label>
         {{ form.number_of_guests }}
     </div>
     <div class="mb-3">
-        <label for="{{ form.date.id_for_label }}" class="center-label">{{ form.date.label }}</label>
+        <label for="{{ form.date.id_for_label }}">{{ form.date.label }}</label>
         {{ form.date }}
     </div>
     <div class="mb-3">
-        <label for="{{ form.time.id_for_label }}" class="center-label">{{ form.time.label }}</label>
+        <label for="{{ form.time.id_for_label }}">{{ form.time.label }}</label>
         {{ form.time }}
     </div>
     <div class="mb-3">
-        <label for="{{ form.duration.id_for_label }}" class="center-label">{{ form.duration.label }}</label>
+        <label for="{{ form.duration.id_for_label }}">{{ form.duration.label }}</label>
         {{ form.duration }}
     </div>
     <div class="mb-3">
-        <label for="{{ form.special_reqs.id_for_label }}" class="center-label">{{ form.special_reqs.label }}</label>
+        <label for="{{ form.special_reqs.id_for_label }}">{{ form.special_reqs.label }}</label>
         {{ form.special_reqs }}
     </div>
     <button id="submit_booking_button" type="submit" class="btn">Submit</button>

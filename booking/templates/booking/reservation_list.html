@@ -39,12 +39,12 @@
           <td>
             <!-- Creates edit & delete buttons beside each booking linked to respective functional views via unique URL -->
             <div class="d-flex">
-              <a id="edit-reservation-link" href="{% url 'edit_reservation' booking.id %}">
-                <button type="submit" id="edit-reservation-button" class="btn btn-warning">Edit</button>
+              <a href="{% url 'edit_reservation' booking.id %}">
+                <button type="submit" id="edit-reservation-button">Edit</button>
               </a>
               <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation">
                 {% csrf_token %}
-                <button type="submit" id="delete-reservation-button" class="btn btn-danger">Delete</button>
+                <button type="submit" id="delete-reservation-button">Delete</button>
               </form>
             </div>
           </td>
@@ -54,7 +54,7 @@
 </table>
 
 {% else %}
-  <p id="no-booking-message">You have no bookings!</p>
+<p id="no-booking-message">You have no bookings!</p>
 {% endif %}
 
 {% endblock %}

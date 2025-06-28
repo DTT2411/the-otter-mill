@@ -101,7 +101,6 @@ footer i {
     border-radius: 10px;
     padding: 10px;
     background-color: var(--primary-color);
-    color: var(--secondary-color);
     text-align: center;
 }
 
@@ -111,6 +110,9 @@ footer i {
 
 .homepage-header {
     margin-bottom: 50px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Custom styling for reservation_list.html */
@@ -147,19 +149,19 @@ footer i {
 #delete-reservation-button, 
 #edit-reservation-button {
     border: solid var(--primary-color) 3px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
 
 #edit-reservation-button:hover,
 #edit-reservation-button:focus {
-    background-color: yellow;
+    background-color: #FFFFC5;
 }
 
 #delete-reservation-button:hover,
 #delete-reservation-button:focus {
-    background-color: red;
+    background-color: #FFCCCB;
 }
 
 #no-booking-message {
@@ -187,10 +189,6 @@ footer i {
     border-radius: 10px;
 }
 
-form h1 {
-    text-align: center;
-}
-
 .small_form_field {
     max-width: 200px;
     width: 100%;
@@ -201,19 +199,8 @@ form h1 {
 }
 
 .form_text_area {
-    max-width: 400px;
     width: 250px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
     text-align: left;
-}
-
-.center-label {
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 #submit_booking_button {
@@ -247,23 +234,11 @@ form h1 {
     padding: 10px;
     color: var(--primary-color);
     background-color: var(--tertiary-color);
-    border: solid 3px var(--primary-color);
+    border: solid 5px var(--primary-color);
     font-size: small;
 }
 
-#starters-table td, th {
-    background-color: var(--tertiary-color) !important;
-}
-
-#mains-table td, th {
-    background-color: var(--tertiary-color) !important;
-}
-
-#desserts-table td, th {
-    background-color: var(--tertiary-color) !important;
-}
-
-#drinks-table td, th {
+.menu-section td, th {
     background-color: var(--tertiary-color) !important;
 }
 
@@ -271,8 +246,12 @@ form h1 {
     --bs-table-border-color: var(--primary-color);
 }
 
+.price-col {
+    text-align: right;
+    min-width: 75px;
+}
 
-/* Custom styling for all authentication pages */
+/* Custom styling for All Auth authentication pages */
 #signout-btn, 
 #signin-btn,
 #signup-btn {
@@ -290,7 +269,6 @@ form h1 {
     color: var(--primary-color);
 }
 
-/* Custom styling for login.html & signup.html */
 #signin-div, 
 #signup-div {
     margin-left: auto;
@@ -301,12 +279,10 @@ form h1 {
     border-radius: 10px;
 }
 
-/* Custom styling for login.html */
 #signin-btn {
     margin-left: 45px;
 }
 
-/* Custom styling for signup.html */
 #signup-div {
     padding: 20px;
 }
@@ -329,7 +305,6 @@ form h1 {
     margin-left: 120px;
 }
 
-/* Custom styling for logout.html */
 #signout-div {
     text-align: center;
     margin-left: auto;
@@ -361,7 +336,7 @@ form h1 {
 
     /* Custom styling for menu_list.html */
     .menu-section {
-        width: 530px;
+        width: 600px;
         font-size: medium;
     }
 }

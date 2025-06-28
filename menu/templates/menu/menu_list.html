@@ -7,21 +7,21 @@
 {% block content %}
 
 <h1 id="menu-list-header">Menu</h1>
-<div class="d-flex flex-column rounded">
+<div class="d-flex flex-column">
     <div class="menu-section">
         <h3 class="text-center">Starters</h3>
         <table id="starters-table" class="table">
             <thead>
                 <tr>
-                    <th scope="col">Dish</th>
-                    <th scope="col">Price (£)</th>
+                    <th class="item-col" scope="col">Dish</th>
+                    <th class="price-col" scope="col">Price (£)</th>
                 </tr>
             </thead>
             {% for item in object_list %}
             {% if item.type == 0 %}
-            <tbody class="table-group-divider">
-                <td>{{ item.name }}</td>
-                <td>{{ item.price|floatformat:2 }}</td>
+            <tbody>
+                <td class="item-col">{{ item.name }}</td>
+                <td class="price-col">{{ item.price|floatformat:2 }}</td>
             </tbody>
             {% endif %}
             {% endfor %}
@@ -32,15 +32,15 @@
         <table id="mains-table" class="table">
             <thead>
                 <tr>
-                    <th scope="col">Dish</th>
-                    <th scope="col">Price (£)</th>
+                    <th class="item-col" scope="col">Dish</th>
+                    <th class="price-col" scope="col">Price (£)</th>
                 </tr>
             </thead>
             {% for item in object_list %}
             {% if item.type == 1 %}
-            <tbody class="table-group-divider">
-                <td>{{ item.name }}</td>
-                <td>{{ item.price|floatformat:2 }}</td>
+            <tbody>
+                <td class="item-col">{{ item.name }}</td>
+                <td class="price-col">{{ item.price|floatformat:2 }}</td>
             </tbody>
             {% endif %}
             {% endfor %}
@@ -52,14 +52,14 @@
             <thead>
                 <tr>
                     <th scope="col">Dish</th>
-                    <th scope="col">Price (£)</th>
+                    <th class="price-col" scope="col">Price (£)</th>
                 </tr>
             </thead>
             {% for item in object_list %}
             {% if item.type == 2 %}
-            <tbody class="table-group-divider">
+            <tbody>
                 <td>{{ item.name }}</td>
-                <td>{{ item.price|floatformat:2 }}</td>
+                <td class="price-col">{{ item.price|floatformat:2 }}</td>
             </tbody>
             {% endif %}
             {% endfor %}
@@ -70,15 +70,15 @@
         <table id="drinks-table" class="table">
             <thead>
                 <tr>
-                    <th scope="col">Dish</th>
-                    <th scope="col">Price (£)</th>
+                    <th scope="col">Drink</th>
+                    <th class="price-col" scope="col">Price (£)</th>
                 </tr>
             </thead>
             {% for item in object_list %}
             {% if item.type == 3 %}
-            <tbody class="table-group-divider">
+            <tbody>
                 <td>{{ item.name }}</td>
-                <td>{{ item.price|floatformat:2 }}</td>
+                <td class="price-col">{{ item.price|floatformat:2 }}</td>
             </tbody>
             {% endif %}
             {% endfor %}
