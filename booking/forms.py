@@ -32,6 +32,7 @@ class ReservationForm(forms.ModelForm):
             'duration': forms.NumberInput(
                 attrs={
                     'class': 'small_form_field center-field',
+                    'min': 1,
                     'max': 3,
                 }),
             'special_reqs': forms.Textarea(

@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -35,7 +35,7 @@ class Reservation(models.Model):
         validators=[MaxValueValidator(6)])
     time = models.TimeField()
     date = models.DateField()
-    duration = models.PositiveIntegerField(validators=[MaxValueValidator(3)])
+    duration = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(3)])
     special_reqs = models.TextField(max_length=100, blank=True)
     created_on = models.DateTimeField(auto_now=True)
 
