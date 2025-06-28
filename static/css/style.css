@@ -116,7 +116,7 @@ footer i {
 #reservation-list-header {
     text-align: center;
     width: 300px;
-    background-color: #30011E;
+    background-color: var(--primary-color);
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
@@ -127,22 +127,11 @@ footer i {
 }
 
 #reservation-table {
-    width: 70%;
+    width: 50%;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     border: solid 5px var(--secondary-color);
-    border-radius: 20px;
-}
-
-
-.table-row {
-    color: var(--secondary-color);
-    background-color: var(--primary-color);
-}
-
-#reservation-table tr {
-    height: 60px;
 }
 
 #reservation-table th {
@@ -154,8 +143,19 @@ footer i {
     color: var(--secondary-color);
 }
 
-#reservation-table th {
-    height: 30px;
+#delete-reservation-button, #edit-reservation-button {
+    border: solid var(--primary-color) 3px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+#edit-reservation-button:hover {
+    background-color: yellow;
+}
+
+#delete-reservation-button:hover {
+    background-color: red;
 }
 
 #no-booking-message {
@@ -169,21 +169,6 @@ footer i {
     color: var(--primary-color);
     background-color: var(--tertiary-color);
     border: solid 3px var(--primary-color);
-}
-
-#delete-reservation-button, #edit-reservation-button {
-    border: solid var(--primary-color) 3px;
-    border-radius: 10px;
-    background-color: var(--secondary-color);
-    color: #30011E;
-}
-
-#edit-reservation-button:hover {
-    background-color: yellow;
-}
-
-#delete-reservation-button:hover {
-    background-color: red;
 }
 
 /* Custom styling for reservation_form.html */
@@ -341,9 +326,8 @@ form h1 {
         font-size: larger;
     }
     
-    #reservation-list {
-        width: 600px;
-        height: 360px;
+    #reservation-table {
+        width: 70%;
     }
 
     /* Custom styling for menu_list.html */
@@ -353,7 +337,7 @@ form h1 {
     }
 }
 
-/* Medium screens (tablet, 992px and up) */
+/* Large screens (laptop, 992px and up) */
 @media screen and (min-width: 992px) {
     .cta-button {
         width: 100%;
