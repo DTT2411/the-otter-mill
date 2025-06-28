@@ -216,8 +216,12 @@ form h1 {
     margin-right: auto;
 }
 
-#submitButton:hover,
-#submitButton:focus {
+#submit_booking_button {
+    background-color: var(--secondary-color);
+}
+
+#submit_booking_button:hover,
+#submit_booking_button:focus {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
 }
@@ -232,6 +236,7 @@ form h1 {
     padding: 10px;
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
+    margin-bottom: 30px;
 }
 
 .menu-section {
@@ -246,16 +251,35 @@ form h1 {
     font-size: small;
 }
 
-.menu-section ul {
-    list-style-type: none;
-    padding-left: 0;
+#starters-table td, th {
+    background-color: var(--tertiary-color) !important;
 }
 
-.menu-section li {
-    margin-bottom: 5px;
+#mains-table td, th {
+    background-color: var(--tertiary-color) !important;
 }
+
+#desserts-table td, th {
+    background-color: var(--tertiary-color) !important;
+}
+
+#drinks-table td, th {
+    background-color: var(--tertiary-color) !important;
+}
+
+.table {
+    --bs-table-border-color: var(--primary-color);
+}
+
 
 /* Custom styling for all authentication pages */
+#signout-btn, 
+#signin-btn,
+#signup-btn {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 #signout-btn:hover, 
 #signin-btn:hover,
 #signup-btn:hover,
