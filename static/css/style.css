@@ -141,6 +141,10 @@ footer i {
     color: var(--secondary-color);
 }
 
+#manage-booking-col {
+    text-align: right;
+}
+
 #delete-reservation-button, 
 #edit-reservation-button {
     border: solid var(--primary-color) 3px;

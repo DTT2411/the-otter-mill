@@ -20,34 +20,34 @@
 
 {% if object_list %}
 <table id="reservation-table" class="table">
-  <thead>
-      <tr>
-        <th scope="col">Date</th>
-        <th scope="col">Time</th>
-        <th scope="col">Duration</th>
-        <th scope="col">Guests</th>
-        <th scope="col">Manage Booking</th>
-      </tr>
-  </thead>
-  {% for booking in object_list %}
-  <tbody class="table-group-divider">
-      <tr>
-          <td>{{ booking.date }}</td>
-          <td>{{ booking.time }}</td>
-          <td>{{ booking.duration }} hour(s)</td>
-          <td>{{ booking.number_of_guests }}</td>
-          <td>
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Time</th>
+            <th scope="col">Duration</th>
+            <th scope="col">Guests</th>
+            <th id="manage-booking-col" scope="col">Manage</th>
+        </tr>
+    </thead>
+    {% for booking in object_list %}
+    <tbody class="table-group-divider">
+        <tr>
+            <td>{{ booking.date }}</td>
+            <td>{{ booking.time }}</td>
+            <td>{{ booking.duration }} hour(s)</td>
+            <td>{{ booking.number_of_guests }}</td>
+            <td>
             <!-- Creates edit & delete buttons beside each booking linked to respective functional views via unique URL -->
-            <div class="d-flex">
-              <a href="{% url 'edit_reservation' booking.id %}">
-                <button type="submit" id="edit-reservation-button">Edit</button>
-              </a>
-              <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation">
-                {% csrf_token %}
-                <button type="submit" id="delete-reservation-button">Delete</button>
-              </form>
-            </div>
-          </td>
+                <div class="d-flex flex-row-reverse">
+                    <a href="{% url 'edit_reservation' booking.id %}">
+                        <button type="submit" id="edit-reservation-button">Edit</button>
+                    </a>
+                    <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation">
+                    {% csrf_token %}
+                        <button type="submit" id="delete-reservation-button">Delete</button>
+                    </form>
+                </div>
+            </td>
       </tr>
   </tbody>
   {% endfor %}
