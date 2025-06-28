@@ -19,35 +19,41 @@
 <h1 id="reservation-list-header">Bookings for {{ user.username }}</h1>
 
 {% if object_list %}
-  <!-- Creates an individual <div> element for each booking made by the logged-in user -->
+<table id="reservation-table" class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Time</th>
+      <th scope="col">Duration</th>
+      <th scope="col">Guests</th>
+      <th scope="col">Manage</th>
+    </tr>
+  </thead>
   {% for booking in object_list %}
-  <div id="reservation-list" class="d-flex flex-column rounded">
-    <div>
-      <p><span class="reservation-data-label">Date: </span>{{ booking.date }}</p>
-      <p><span class="reservation-data-label">Time: </span>{{ booking.time }}</p>
-      <p><span class="reservation-data-label">Duration: </span>{{ booking.duration }} hour(s)</p>
-      <p><span class="reservation-data-label">Table: </span>{{ booking.table.table_id }}</p>
-      <p><span class="reservation-data-label">No. of guests: </span>{{ booking.number_of_guests }}</p>
-      <p><span class="reservation-data-label">Booked on: </span>{{ booking.created_on }}</p>
-      <!-- Only lists special requirements (optional field) if it exists for the booking -->
-      {% if booking.special_reqs %}
-      <p><span class="reservation-data-label">Special reqs: </span>{{ booking.special_reqs }}</p>
-      {% endif %}
-    </div>
+  <tbody class="table-group-divider">
+      <tr class="table-row">
+          <td>{{ booking.date }}</td>
+          <td>{{ booking.time }}</td>
+          <td>{{ booking.duration }} hour(s)</td>
+          <td>{{ booking.number_of_guests }}</td>
+          <td>
+              <div class="d-flex">
+                <a id="edit-reservation-link" href="{% url 'edit_reservation' booking.id %}">
+                  <button type="submit" id="edit-reservation-button" class="btn btn-warning">Edit</button>
+                </a>
+                <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation">
+                  {% csrf_token %}
+                  <!-- Clicking delete sends a POST request to delete the associated booking -->
+                  <!-- JS event handler will throw a modal to confirm before deletion -->
+                  <button type="submit" id="delete-reservation-button" class="btn btn-danger">Delete</button>
+                </form>
+              </div>
+          </td>
+      </tr>
+  </tbody>
+    {% endfor %}
+</table>
 
-    <div class="d-flex justify-content-center">
-      <form method="post" action="{% url 'delete_reservation' booking.id %}" class="delete-reservation" id="delete-reservation-button">
-        {% csrf_token %}
-        <!-- Clicking delete sends a POST request to delete the associated booking -->
-        <!-- JS event handler will throw a modal to confirm before deletion -->
-        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-      </form>
-      <!-- Clicking edit sends a POST request to amend the associated booking -->
-      <!-- JS event handler will throw a modal to confirm before update -->
-      <a href="{% url 'edit_reservation' booking.id %}" class="btn btn-warning btn-sm edit-reservation" id="edit-reservation-button">Edit</a>
-    </div>
-  </div>
-  {% endfor %}
 {% else %}
   <p id="no-booking-message">You have no bookings!</p>
 {% endif %}

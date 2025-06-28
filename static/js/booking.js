@@ -7,12 +7,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    // Confirmation check for edit button(s)
-    document.querySelectorAll('a.edit-reservation').forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            if (!confirm('Are you sure you want to change this booking?')) {
-                event.preventDefault();
-            }
-        });
-    });
 });

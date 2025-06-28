@@ -25,6 +25,10 @@ h1, h2, h3 {
     background-color: var(--primary-color);
 }
 
+a {
+    text-decoration: none !important;
+}
+
 nav {
     background-color: var(--primary-color);
     font-family: var(--main-font);
@@ -119,24 +123,39 @@ footer i {
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
     font-size: small;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-#reservation-list {
-    width: 350px;
-    height: 370px;
+#reservation-table {
+    width: 70%;
+    margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 20px;
-    display: flex;
-    padding: 10px;
-    color: var(--primary-color);
-    background-color: var(--tertiary-color);
-    border: solid 3px var(--primary-color);
+    border: solid 5px var(--secondary-color);
+    border-radius: 20px;
 }
 
-.reservation-data-label {
-    font-weight: bold;
+
+.table-row {
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+}
+
+#reservation-table tr {
+    height: 60px;
+}
+
+#reservation-table th {
+    background-color: var(--secondary-color);
+}
+
+#reservation-table td {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+#reservation-table th {
+    height: 30px;
 }
 
 #no-booking-message {
@@ -152,19 +171,19 @@ footer i {
     border: solid 3px var(--primary-color);
 }
 
-.btn {
-    border: solid var(--primary-color) 2px;
-    color: var(--primary-color);
+#delete-reservation-button, #edit-reservation-button {
+    border: solid var(--primary-color) 3px;
+    border-radius: 10px;
     background-color: var(--secondary-color);
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    color: #30011E;
 }
 
-#delete-reservation-button, #edit-reservation-button {
-    margin-left: 10px;
-    margin-right: 10px;
+#edit-reservation-button:hover {
+    background-color: yellow;
+}
+
+#delete-reservation-button:hover {
+    background-color: red;
 }
 
 /* Custom styling for reservation_form.html */
