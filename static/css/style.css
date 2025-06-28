@@ -62,7 +62,8 @@ nav {
     text-align: center;
 }
 
-.cta-button:hover, .cta-button:focus {
+.cta-button:hover, 
+.cta-button:focus {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
     text-decoration: none;
@@ -143,18 +144,21 @@ footer i {
     color: var(--secondary-color);
 }
 
-#delete-reservation-button, #edit-reservation-button {
+#delete-reservation-button, 
+#edit-reservation-button {
     border: solid var(--primary-color) 3px;
     border-radius: 10px;
     background-color: var(--secondary-color);
     color: var(--primary-color);
 }
 
-#edit-reservation-button:hover {
+#edit-reservation-button:hover,
+#edit-reservation-button:focus {
     background-color: yellow;
 }
 
-#delete-reservation-button:hover {
+#delete-reservation-button:hover,
+#delete-reservation-button:focus {
     background-color: red;
 }
 
@@ -217,7 +221,8 @@ form h1 {
     margin-right: auto;
 }
 
-#submitButton:hover {
+#submitButton:hover,
+#submitButton:focus {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
 }
@@ -258,13 +263,17 @@ form h1 {
 /* Custom styling for all authentication pages */
 #signout-btn:hover, 
 #signin-btn:hover,
-#signup-btn:hover {
+#signup-btn:hover,
+#signout-btn:focus, 
+#signin-btn:focus,
+#signup-btn:focus {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
 }
 
 /* Custom styling for login.html & signup.html */
-#signin-div, #signup-div {
+#signin-div, 
+#signup-div {
     margin-left: auto;
     margin-right: auto;
     width: 500px;
@@ -291,7 +300,8 @@ form h1 {
     width: 400px;
 }
 
-#signin-link, #signup-link {
+#signin-link, 
+#signup-link {
     color: var(--tertiary-color);
     font-weight: bold;
 }
