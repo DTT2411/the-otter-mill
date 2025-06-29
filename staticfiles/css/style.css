@@ -41,6 +41,7 @@ h1, h2, h3 {
 
 /* Sets the hero image to use as the background for all pages via class blocks */
 .main-image {
+    /* background-image: url('../img/hero-image.jpg'); */
     background-image: url('../img/hero-image.jpg');
     background-size: cover;
     background-position: center top;
