@@ -25,6 +25,13 @@ h1, h2, h3 {
     padding-right: 30px;
 }
 
+.alert {
+    width: 320px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Sets the hero image to use as the background for all pages via class blocks */
 .main-image {
     background-image: url('../img/hero-image.jpg');
