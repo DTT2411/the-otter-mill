@@ -32,7 +32,7 @@ class Reservation(models.Model):
         Table, on_delete=models.CASCADE, related_name="reserved_table"
     )
     number_of_guests = models.PositiveIntegerField(
-        validators=[MaxValueValidator(6)])
+        validators=[MinValueValidator(1), MaxValueValidator(6)])
     time = models.TimeField()
     date = models.DateField()
     duration = models.PositiveIntegerField(
