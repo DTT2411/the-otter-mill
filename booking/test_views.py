@@ -5,7 +5,9 @@ from .models import Reservation, Table
 
 
 class TestReservationViews(TestCase):
-
+    """
+    Tests GET requests for the create, delete and edit reservation views.
+    """
     def setUp(self):
         self.user = User.objects.create_user(
             username="TestUser",
