@@ -44,5 +44,4 @@ class Reservation(models.Model):
         ordering = ["-time", "-date"]
 
     def __str__(self):
-        return f"Time: {self.time} | Date: {self.date} | Guest: {
-            self.guest.username} | Table: {self.table.table_id}"
+        return f"Time: {self.time} | Date: {self.date} | Guest: {self.guest.username} | Table: {self.table.table_id}"
