@@ -96,7 +96,7 @@ footer {
     padding-bottom: 20px;
 }
 
-footer i {
+#opening-times i {
     color: var(--secondary-color);
     font-size: 200%;
     margin-right: 5px;
