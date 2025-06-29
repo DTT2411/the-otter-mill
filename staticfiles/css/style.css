@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 /* Google Font import */
 @import url('https://fonts.googleapis.com/css2?family=Eagle+Lake&family=Gudea:ital,wght@0,400;0,700;1,400&display=swap');
 
@@ -19,6 +26,17 @@ body {
 
 h1, h2, h3 {
     font-family: var(--headings-font);
+}
+
+.status-notification {
+    padding-right: 30px;
+}
+
+.alert {
+    width: 320px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Sets the hero image to use as the background for all pages via class blocks */
@@ -85,7 +103,7 @@ footer {
     padding-bottom: 20px;
 }
 
-footer i {
+#opening-times i {
     color: var(--secondary-color);
     font-size: 200%;
     margin-right: 5px;
@@ -97,6 +115,10 @@ footer i {
     border-radius: 10px;
     padding: 10px;
     background-color: var(--primary-color);
+}
+
+.about {
+    margin-bottom: 30px;
 }
 
 .about h2 {
@@ -169,6 +191,8 @@ footer i {
     margin-bottom: 20px;
     text-align: center;
     width: 180px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     padding: 10px;
     color: var(--primary-color);
