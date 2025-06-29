@@ -17,8 +17,8 @@ class ReservationForm(forms.ModelForm):
             'number_of_guests': forms.NumberInput(
                 attrs={
                     'class': 'small_form_field center-field',
-                    'min': 1,
-                    'max': 6,
+                    'min': '1',
+                    'max': '6',
                 }),
             'date': forms.DateInput(
                 attrs={
@@ -36,16 +36,16 @@ class ReservationForm(forms.ModelForm):
             'duration': forms.NumberInput(
                 attrs={
                     'class': 'small_form_field center-field',
-                    'min': 1,
-                    'max': 3,
+                    'min': '1',
+                    'max': '3',
                 }),
             'special_reqs': forms.Textarea(
                 attrs={
                     'class': 'form_text_area center-field',
-                    'rows': 4,
+                    'rows': '4',
                     'placeholder': 'Let us know if you have any allergies or '
                     'other special requirements.',
-                    'maxlength': 300,
+                    'maxlength': '300',
                 }),
         }
         # Adds labels to fields requiring additional context
