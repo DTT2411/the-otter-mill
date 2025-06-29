@@ -47,9 +47,9 @@
     <main{% block main_class %}{% endblock %}>
         <!-- Displays a text notification of the user's login status -->
         {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user }}</p>
+        <p class="text-end m-3 status-notification">You are logged in as {{ user }}</p>
         {% else %}
-        <p class="text-end m-3">You are not logged in</p>
+        <p class="text-end m-3 status-notification">You are not logged in</p>
         {% endif %}
 
         {% block content %}

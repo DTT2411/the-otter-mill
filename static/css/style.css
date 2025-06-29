@@ -21,6 +21,10 @@ h1, h2, h3 {
     font-family: var(--headings-font);
 }
 
+.status-notification {
+    padding-right: 30px;
+}
+
 /* Sets the hero image to use as the background for all pages via class blocks */
 .main-image {
     background-image: url('../img/hero-image.jpg');
@@ -97,6 +101,10 @@ footer i {
     border-radius: 10px;
     padding: 10px;
     background-color: var(--primary-color);
+}
+
+.about {
+    margin-bottom: 30px;
 }
 
 .about h2 {
