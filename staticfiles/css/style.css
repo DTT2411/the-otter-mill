@@ -297,7 +297,7 @@ footer {
 #signup-div {
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 320px;
     padding: 10px;
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
@@ -306,6 +306,7 @@ footer {
 
 #signin-btn {
     margin-left: 45px;
+    margin-bottom: 20px;
 }
 
 #signup-div {
@@ -314,10 +315,6 @@ footer {
 
 #signup-div ul {
     max-width: 400px;
-}
-
-#signin-check {
-    width: 400px;
 }
 
 #signin-link, 
@@ -334,7 +331,7 @@ footer {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    width: 320px;
     padding: 10px;
     border: solid 5px var(--tertiary-color);
     border-radius: 10px;
@@ -364,6 +361,13 @@ footer {
     .menu-section {
         width: 600px;
         font-size: medium;
+    }
+
+    /* Custom styling for authentication pages */
+    #signout-div,
+    #signin-div,
+    #signup-div {
+        width: 500px;
     }
 }
 
